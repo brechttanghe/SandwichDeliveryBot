@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var dburl = 'mongodb://localhost:27017/meanSandwiches';
 
-mongoose.connect(dburl);
+mongoose.connect(process.env.MONGODB_URI);
 
 mongoose.connection.on('connected', function(){
     console.log('Mongoose connected to ' + dburl);

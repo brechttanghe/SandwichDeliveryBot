@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 var dburl = 'mongodb://localhost:27017/meanSandwiches';
 
-mongoose.connect(process.env.MONGODB_URI , {
+mongoose.connect(dburl , {
     useMongoClient: true,
 });
 
-/*mongoose.connection.on('connected', function(){
+mongoose.connection.on('connected', function(){
     console.log('Mongoose connected to ' + dburl);
 });
 mongoose.connection.on('disconnected', function(){
@@ -34,6 +34,6 @@ process.once('SIGUSR2', function(){
         console.log('Mongoose disconnected trough app termination (SIGUSR2) ')
         process.exit(process.pid, 'SIGUSR2');
     });
-});*/
+});
 
 require('./sandwiches.model.js');

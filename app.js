@@ -1,6 +1,7 @@
 require('./api/data/dbconnection.js');
 var express = require('express');
 var app = express();
+var path = require('path');
 
 var routes = require('./api/routes');
 
@@ -11,11 +12,8 @@ app.use(function(req, res, next){
     next();
 });
 
-app.get('', function(req,res){
-    res
-        .status(200)
-        .send('Hello world!');
-});
+app.use(express.static(path.join(__dirname,'public')));
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
 
 app.use('/api', routes);
 

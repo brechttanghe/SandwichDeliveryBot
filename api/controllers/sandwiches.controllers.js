@@ -4,14 +4,20 @@ var Sandwiches = mongoose.model('Sandwiches');
 module.exports.sandwichesGetAll = function(req, res){
 
     var origin = "";
+    var count = 7;
 
     if(req.query && req.query.origin){
         origin = req.query.origin;
     }
 
+    if(req.query && req.query.count){
+        count = req.query.count;
+    }
+
     if(origin === ""){
         Sandwiches
         .find()
+        .limit(count)
         .exec(function(err,sandwiches){
             if(err){
                 console.log("Error finding hotels");

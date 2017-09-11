@@ -23,7 +23,7 @@ function BotController($scope,sandwichDataFactory){
         }
 
         if(address){
-            
+            vm.messages.push("[BOT] : your order will be delivered! ");
         }
 
         if($scope.message >= 1 && $scope.message <= vm.sandwiches.length && yesno){

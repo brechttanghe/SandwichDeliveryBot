@@ -1,4 +1,4 @@
-angular.module('sandwichbot', ['ngRoute','uiGmapgoogle-maps']).config(config);
+angular.module('sandwichbot', ['ngRoute']).config(config);
 
 function config($routeProvider){
     $routeProvider
